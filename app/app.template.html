@@ -1,0 +1,10 @@
+<h1>My courses app</h1>
+<courses></courses>
+<authors></authors>
+<favorite [is-favorite]="vedio.isFavorite" (change)="onFavoriteChange($event)"></favorite>
+<like [i-like]="vedio.iLike" [total-likes]="vedio.likesCount"></like>
+
+<vote [total-votes]="vedio.totalVotes" [my-vote]="vedio.myVote"></vote>
+<div *ngFor="#tweet of tweets">
+    <tweet [tweet]="tweet"></tweet>
+</div>
