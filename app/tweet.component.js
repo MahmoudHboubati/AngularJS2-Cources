@@ -1,4 +1,4 @@
-System.register(['angular2/core', './tweet.service', './like.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './tweet.service', './like.component', './summary.pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './tweet.service', './like.component'], functi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tweet_service_1, like_component_1;
+    var core_1, tweet_service_1, like_component_1, summary_pipe_1;
     var TweetComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', './tweet.service', './like.component'], functi
             },
             function (like_component_1_1) {
                 like_component_1 = like_component_1_1;
+            },
+            function (summary_pipe_1_1) {
+                summary_pipe_1 = summary_pipe_1_1;
             }],
         execute: function() {
             TweetComponent = (function () {
@@ -34,9 +37,10 @@ System.register(['angular2/core', './tweet.service', './like.component'], functi
                 TweetComponent = __decorate([
                     core_1.Component({
                         selector: 'tweet',
-                        template: "<div class=\"media\">\n                <div class=\"media-left\">\n                  <a href=\"#\">\n                    <img class=\"media-object\" [src]=\"tweet.imgUrl\" alt=\"...\">\n                  </a>\n                </div>\n                <div class=\"media-body\">\n                  <h4 class=\"media-heading\">{{tweet.account}}</h4>\n                  {{tweet.text}}\n                  <div>\n                  <like [i-like]=\"tweet.iLike\" [total-likes]=\"tweet.likes\"></like>\n                  </div>\n                </div>\n              </div>",
+                        template: "<div class=\"media\">\n                <div class=\"media-left\">\n                  <a href=\"#\">\n                    <img class=\"media-object\" [src]=\"tweet.imgUrl\" alt=\"...\">\n                  </a>\n                </div>\n                <div class=\"media-body\">\n                  <h4 class=\"media-heading\">{{tweet.account}}</h4>\n                  {{tweet.text | summary:75}}\n                  <div>\n                  <like [i-like]=\"tweet.iLike\" [total-likes]=\"tweet.likes\"></like>\n                  </div>\n                </div>\n              </div>",
                         styles: ["\n        .media-object {\n          border-radius: 25px;\n        }\n        .media {\n          margin: 5px;\n        }\n      "],
-                        directives: [like_component_1.LikeComponent]
+                        directives: [like_component_1.LikeComponent],
+                        pipes: [summary_pipe_1.SummaryPipe]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], TweetComponent);

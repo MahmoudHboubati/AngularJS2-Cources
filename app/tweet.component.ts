@@ -1,6 +1,8 @@
 import { Component, Input } from 'angular2/core';
 import { Tweet } from './tweet.service';
 import {LikeComponent}from './like.component';
+import {SummaryPipe} from './summary.pipe';
+
 @Component({
     selector: 'tweet',
     template: `<div class="media">
@@ -11,7 +13,7 @@ import {LikeComponent}from './like.component';
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">{{tweet.account}}</h4>
-                  {{tweet.text}}
+                  {{tweet.text | summary:75}}
                   <div>
                   <like [i-like]="tweet.iLike" [total-likes]="tweet.likes"></like>
                   </div>
@@ -25,7 +27,8 @@ import {LikeComponent}from './like.component';
           margin: 5px;
         }
       `],
-      directives: [LikeComponent]
+      directives: [LikeComponent],
+      pipes: [SummaryPipe]
 })
 export class TweetComponent {
     @Input() tweet: Tweet;

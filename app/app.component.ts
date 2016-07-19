@@ -6,12 +6,14 @@ import { LikeComponent } from './like.component';
 import { VoteComponent } from './vote.component';
 import { TweetComponent } from './tweet.component';
 import {TweetService, Tweet} from './tweet.service';
+import {SummaryPipe} from './summary.pipe';
 
 @Component({
     selector: 'my-app',
     templateUrl: `app/app.template.html`,
     directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, LikeComponent, VoteComponent, TweetComponent],
-    providers: [TweetService]
+    providers: [TweetService],
+    pipes: [SummaryPipe]
 })
 
 export class AppComponent {
