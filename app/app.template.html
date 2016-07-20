@@ -1,20 +1,29 @@
-<h1>My courses app</h1>
-<courses></courses>
-<authors></authors>
-<favorite [is-favorite]="vedio.isFavorite" (change)="onFavoriteChange($event)"></favorite>
-<like [i-like]="vedio.iLike" [total-likes]="vedio.likesCount"></like>
-
-<vote [total-votes]="vedio.totalVotes" [my-vote]="vedio.myVote"></vote>
-<div *ngFor="#tweet of tweets">
-    <tweet [tweet]="tweet"></tweet>
-</div>
-
-<br />
-
-<div class="col-xs-6">
-  <div class="row">
-    <zippy title="Header Text">
-      <div>some content</div>
-    </zippy>
-  </div>
+<div class="container" id="content" tabindex="-1">
+    <h1>My courses app</h1>
+    <div class="row">
+        <!-- The main page content -->
+        <div class="col-xs-12">
+            <courses></courses>
+            <authors></authors>
+            <favorite [is-favorite]="vedio.isFavorite" (change)="onFavoriteChange($event)"></favorite>
+            <like [i-like]="vedio.iLike" [total-likes]="vedio.likesCount"></like>
+            <vote [total-votes]="vedio.totalVotes" [my-vote]="vedio.myVote"></vote>
+            <div *ngFor="#tweet of tweets">
+                <tweet [tweet]="tweet"></tweet>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xs-6">
+                    <zippy title="Header Text">
+                        <div>some content</div>
+                    </zippy>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 col-xs-12">
+                    <contact-form></contact-form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

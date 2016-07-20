@@ -8,11 +8,12 @@ import { TweetComponent } from './tweet.component';
 import {TweetService, Tweet} from './tweet.service';
 import {SummaryPipe} from './summary.pipe';
 import {ZipperComponent} from './zipper.component';
+import {ContactFormComponent} from './contact-form.component';
 
 @Component({
     selector: 'my-app',
     templateUrl: `app/app.template.html`,
-    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, LikeComponent, VoteComponent, TweetComponent, ZipperComponent],
+    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, LikeComponent, VoteComponent, TweetComponent, ZipperComponent, ContactFormComponent],
     providers: [TweetService],
     pipes: [SummaryPipe]
 })
