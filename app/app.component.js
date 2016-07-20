@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './authors.component', './favorite.component', './like.component', './vote.component', './tweet.component', './tweet.service', './summary.pipe'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.component', './authors.component', './favorite.component', './like.component', './vote.component', './tweet.component', './tweet.service', './summary.pipe', './zipper.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.component', './authors.component', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, authors_component_1, favorite_component_1, like_component_1, vote_component_1, tweet_component_1, tweet_service_1, summary_pipe_1;
+    var core_1, courses_component_1, authors_component_1, favorite_component_1, like_component_1, vote_component_1, tweet_component_1, tweet_service_1, summary_pipe_1, zipper_component_1;
     var AppComponent;
     return {
         setters:[
@@ -40,6 +40,9 @@ System.register(['angular2/core', './courses.component', './authors.component', 
             },
             function (summary_pipe_1_1) {
                 summary_pipe_1 = summary_pipe_1_1;
+            },
+            function (zipper_component_1_1) {
+                zipper_component_1 = zipper_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -55,7 +58,7 @@ System.register(['angular2/core', './courses.component', './authors.component', 
                     core_1.Component({
                         selector: 'my-app',
                         templateUrl: "app/app.template.html",
-                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, vote_component_1.VoteComponent, tweet_component_1.TweetComponent],
+                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, vote_component_1.VoteComponent, tweet_component_1.TweetComponent, zipper_component_1.ZipperComponent],
                         providers: [tweet_service_1.TweetService],
                         pipes: [summary_pipe_1.SummaryPipe]
                     }), 
