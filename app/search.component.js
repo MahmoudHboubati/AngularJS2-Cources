@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,31 +10,33 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var ContactFormComponent;
+    var core_1, Rx_1;
+    var SerachComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (Rx_1_1) {
+                Rx_1 = Rx_1_1;
             }],
         execute: function() {
-            ContactFormComponent = (function () {
-                function ContactFormComponent() {
+            SerachComponent = (function () {
+                function SerachComponent(myElement) {
+                    var keyups = Rx_1.Observable.fromEvent(myElement.nativeElement, "keyup");
+                    keyups.subscribe(function (data) { console.log(data); });
                 }
-                ContactFormComponent.prototype.onSubmit = function (form) {
-                    console.log(form);
-                };
-                ContactFormComponent = __decorate([
+                SerachComponent = __decorate([
                     core_1.Component({
-                        selector: 'contact-form',
-                        templateUrl: 'app/contact-form.component.html'
+                        selector: 'search-up',
+                        template: "<input id=\"search-up\" [(ngModel)]=\"query\" class=\"form-control\" type=\"text\" placeholder=\"search\">"
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], ContactFormComponent);
-                return ContactFormComponent;
+                    __metadata('design:paramtypes', [core_1.ElementRef])
+                ], SerachComponent);
+                return SerachComponent;
             }());
-            exports_1("ContactFormComponent", ContactFormComponent);
+            exports_1("SerachComponent", SerachComponent);
         }
     }
 });
-//# sourceMappingURL=contact-form.component.js.map
+//# sourceMappingURL=search.component.js.map

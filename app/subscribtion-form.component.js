@@ -11,30 +11,33 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var ContactFormComponent;
+    var SubscribtionFormComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            ContactFormComponent = (function () {
-                function ContactFormComponent() {
+            SubscribtionFormComponent = (function () {
+                function SubscribtionFormComponent() {
+                    this.frequencies = [{}, { value: 1, text: 'Daily' },
+                        { value: 2, text: 'Weekly' },
+                        { value: 3, text: 'Monthly' }];
                 }
-                ContactFormComponent.prototype.onSubmit = function (form) {
+                SubscribtionFormComponent.prototype.onSubmit = function (form) {
                     console.log(form);
                 };
-                ContactFormComponent = __decorate([
+                SubscribtionFormComponent = __decorate([
                     core_1.Component({
-                        selector: 'contact-form',
-                        templateUrl: 'app/contact-form.component.html'
+                        selector: 'subscribtion-form',
+                        templateUrl: './app/subscribtion-form.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], ContactFormComponent);
-                return ContactFormComponent;
+                ], SubscribtionFormComponent);
+                return SubscribtionFormComponent;
             }());
-            exports_1("ContactFormComponent", ContactFormComponent);
+            exports_1("SubscribtionFormComponent", SubscribtionFormComponent);
         }
     }
 });
-//# sourceMappingURL=contact-form.component.js.map
+//# sourceMappingURL=subscribtion-form.component.js.map

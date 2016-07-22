@@ -9,11 +9,21 @@ import {TweetService, Tweet} from './tweet.service';
 import {SummaryPipe} from './summary.pipe';
 import {ZipperComponent} from './zipper.component';
 import {ContactFormComponent} from './contact-form.component';
+import {SubscribtionFormComponent} from './subscribtion-form.component';
+import {UsernameValidators} from './usernameValidators';
+import {SignupFormComponent} from './signup-form.component';
+import {ResetPasswordComponent} from './reset-password-form.component';
+import {SerachComponent} from './search.component';
 
 @Component({
     selector: 'my-app',
     templateUrl: `app/app.template.html`,
-    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, LikeComponent, VoteComponent, TweetComponent, ZipperComponent, ContactFormComponent],
+    directives: [CoursesComponent, AuthorsComponent,
+        FavoriteComponent, LikeComponent,
+        VoteComponent, TweetComponent,
+        ZipperComponent, ContactFormComponent,
+        SubscribtionFormComponent, SignupFormComponent,
+        ResetPasswordComponent, SerachComponent],
     providers: [TweetService],
     pipes: [SummaryPipe]
 })

@@ -1,29 +1,86 @@
 <div class="container" id="content" tabindex="-1">
     <h1>My courses app</h1>
+    <hr class="hr" />
     <div class="row">
         <!-- The main page content -->
         <div class="col-xs-12">
-            <courses></courses>
-            <authors></authors>
-            <favorite [is-favorite]="vedio.isFavorite" (change)="onFavoriteChange($event)"></favorite>
-            <like [i-like]="vedio.iLike" [total-likes]="vedio.likesCount"></like>
-            <vote [total-votes]="vedio.totalVotes" [my-vote]="vedio.myVote"></vote>
-            <div *ngFor="#tweet of tweets">
-                <tweet [tweet]="tweet"></tweet>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-xs-6">
-                    <zippy title="Header Text">
-                        <div>some content</div>
-                    </zippy>
+          <zippy title="Search">
+              <div class="row">
+                  <div class="col-xl-12 col-xs-12">
+                      <search-up></search-up>
+                      <!-- <input id="search-up" type="text" class="form-control" placeholder="search"> -->
+                  </div>
+              </div>
+          </zippy>
+            <zippy title="Reset password">
+                <div class="row">
+                    <div class="col-xl-12 col-xs-12">
+                        <reset-password-form></reset-password-form>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12 col-xs-12">
-                    <contact-form></contact-form>
+            </zippy>
+            <zippy title="Validation with ngFormModel way">
+                <div class="row">
+                    <div class="col-xl-12 col-xs-12">
+                        <signup-form></signup-form>
+                    </div>
                 </div>
-            </div>
+            </zippy>
+            <zippy title="Cources list component">
+                <div class="row">
+                    <div class="col-xl-12 col-xs-12">
+                        <courses></courses>
+                    </div>
+                </div>
+            </zippy>
+            <zippy title="Authors list component">
+                <div class="row">
+                    <div class="col-xl-12 col-xs-12">
+                        <authors></authors>
+                    </div>
+                </div>
+            </zippy>
+            <zippy title="Custom components">
+                <div class="row">
+                    <div class="col-xl-12 col-xs-12">
+                        <favorite [is-favorite]="vedio.isFavorite" (change)="onFavoriteChange($event)"></favorite>
+                        <br />
+                        <like [i-like]="vedio.iLike" [total-likes]="vedio.likesCount"></like>
+                        <br />
+                        <vote [total-votes]="vedio.totalVotes" [my-vote]="vedio.myVote"></vote>
+                    </div>
+                </div>
+            </zippy>
+            <zippy title="Tweet template">
+                <div class="row">
+                    <div class="col-xl-12 col-xs-12">
+                        <div *ngFor="#tweet of tweets">
+                            <tweet [tweet]="tweet"></tweet>
+                        </div>
+                    </div>
+                </div>
+            </zippy>
+            <zippy title="Here is the zipper component">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div></div>
+                    </div>
+                </div>
+            </zippy>
+            <zippy title="Basic form features">
+                <div class="row">
+                    <div class="col-xl-12 col-xs-12">
+                        <contact-form></contact-form>
+                    </div>
+                </div>
+            </zippy>
+            <zippy title="Basic validation">
+                <div class="row">
+                    <div class="col-xl-12 col-xs-12">
+                        <subscribtion-form></subscribtion-form>
+                    </div>
+                </div>
+            </zippy>
         </div>
     </div>
 </div>
