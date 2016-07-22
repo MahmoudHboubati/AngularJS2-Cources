@@ -14,7 +14,9 @@ import {UsernameValidators} from './usernameValidators';
 import {SignupFormComponent} from './signup-form.component';
 import {ResetPasswordComponent} from './reset-password-form.component';
 import {SerachComponent} from './search.component';
-
+import {PostService, Post} from './post.service';
+import {HTTP_PROVIDERS} from 'angular2/http';
+import {OnInit} from 'angular2/core';
 @Component({
     selector: 'my-app',
     templateUrl: `app/app.template.html`,
@@ -24,17 +26,28 @@ import {SerachComponent} from './search.component';
         ZipperComponent, ContactFormComponent,
         SubscribtionFormComponent, SignupFormComponent,
         ResetPasswordComponent, SerachComponent],
-    providers: [TweetService],
+    providers: [TweetService, PostService],
     pipes: [SummaryPipe]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+    isLoading = true;
+
+
     vedio = { title: 'V1', isFavorite: true, iLike: true, likesCount: 52, totalVotes: 9, myVote: 1 };
     onFavoriteChange($event) {
         console.log('changed');
     };
     tweets: Tweet[];
-    constructor(tweetService: TweetService) {
+    constructor(tweetService: TweetService, private _postService: PostService) {
         this.tweets = tweetService.getTweets();
+    }
+
+    ngOnInit() {
+        this._postService.getPosts()
+            .subscribe((posts: Post[]) => {
+                console.log('posts: ' + posts[0].title);
+            });
     }
 }

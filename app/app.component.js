@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './authors.component', './favorite.component', './like.component', './vote.component', './tweet.component', './tweet.service', './summary.pipe', './zipper.component', './contact-form.component', './subscribtion-form.component', './signup-form.component', './reset-password-form.component', './search.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.component', './authors.component', './favorite.component', './like.component', './vote.component', './tweet.component', './tweet.service', './summary.pipe', './zipper.component', './contact-form.component', './subscribtion-form.component', './signup-form.component', './reset-password-form.component', './search.component', './post.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.component', './authors.component', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, authors_component_1, favorite_component_1, like_component_1, vote_component_1, tweet_component_1, tweet_service_1, summary_pipe_1, zipper_component_1, contact_form_component_1, subscribtion_form_component_1, signup_form_component_1, reset_password_form_component_1, search_component_1;
+    var core_1, courses_component_1, authors_component_1, favorite_component_1, like_component_1, vote_component_1, tweet_component_1, tweet_service_1, summary_pipe_1, zipper_component_1, contact_form_component_1, subscribtion_form_component_1, signup_form_component_1, reset_password_form_component_1, search_component_1, post_service_1;
     var AppComponent;
     return {
         setters:[
@@ -58,10 +58,15 @@ System.register(['angular2/core', './courses.component', './authors.component', 
             },
             function (search_component_1_1) {
                 search_component_1 = search_component_1_1;
+            },
+            function (post_service_1_1) {
+                post_service_1 = post_service_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(tweetService) {
+                function AppComponent(tweetService, _postService) {
+                    this._postService = _postService;
+                    this.isLoading = true;
                     this.vedio = { title: 'V1', isFavorite: true, iLike: true, likesCount: 52, totalVotes: 9, myVote: 1 };
                     this.tweets = tweetService.getTweets();
                 }
@@ -69,6 +74,12 @@ System.register(['angular2/core', './courses.component', './authors.component', 
                     console.log('changed');
                 };
                 ;
+                AppComponent.prototype.ngOnInit = function () {
+                    this._postService.getPosts()
+                        .subscribe(function (posts) {
+                        console.log('posts: ' + posts[0].title);
+                    });
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
@@ -79,10 +90,10 @@ System.register(['angular2/core', './courses.component', './authors.component', 
                             zipper_component_1.ZipperComponent, contact_form_component_1.ContactFormComponent,
                             subscribtion_form_component_1.SubscribtionFormComponent, signup_form_component_1.SignupFormComponent,
                             reset_password_form_component_1.ResetPasswordComponent, search_component_1.SerachComponent],
-                        providers: [tweet_service_1.TweetService],
+                        providers: [tweet_service_1.TweetService, post_service_1.PostService],
                         pipes: [summary_pipe_1.SummaryPipe]
                     }), 
-                    __metadata('design:paramtypes', [tweet_service_1.TweetService])
+                    __metadata('design:paramtypes', [tweet_service_1.TweetService, post_service_1.PostService])
                 ], AppComponent);
                 return AppComponent;
             }());
