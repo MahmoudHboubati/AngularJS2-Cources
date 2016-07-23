@@ -75,8 +75,10 @@ System.register(['angular2/core', './courses.component', './authors.component', 
                 };
                 ;
                 AppComponent.prototype.ngOnInit = function () {
+                    var _this = this;
                     this._postService.getPosts()
                         .subscribe(function (posts) {
+                        _this.isLoading = false;
                         console.log('posts: ' + posts[0].title);
                     });
                 };
